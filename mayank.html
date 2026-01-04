@@ -473,10 +473,13 @@
         }
 
         .float-icon:nth-child(1) { left: 5%; top: 20%; animation-delay: 0s; }
-        .float-icon:nth-child(2) { left: 15%; top: 70%; animation-delay: 1s; }
-        .float-icon:nth-child(3) { right: 10%; top: 30%; animation-delay: 2s; }
-        .float-icon:nth-child(4) { right: 20%; top: 80%; animation-delay: 0.5s; }
-        .float-icon:nth-child(5) { left: 50%; top: 10%; animation-delay: 1.5s; }
+        .float-icon:nth-child(2) { left: 12%; top: 65%; animation-delay: 1s; }
+        .float-icon:nth-child(3) { right: 8%; top: 25%; animation-delay: 2s; }
+        .float-icon:nth-child(4) { right: 15%; top: 75%; animation-delay: 0.5s; }
+        .float-icon:nth-child(5) { left: 45%; top: 8%; animation-delay: 1.5s; }
+        .float-icon:nth-child(6) { left: 8%; top: 45%; animation-delay: 2.5s; }
+        .float-icon:nth-child(7) { right: 5%; top: 50%; animation-delay: 3s; }
+        .float-icon:nth-child(8) { left: 55%; top: 85%; animation-delay: 0.8s; }
 
         @keyframes iconFloat {
             0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -569,13 +572,16 @@
     <!-- Mouse Trail Canvas -->
     <canvas id="trail-canvas"></canvas>
 
-    <!-- Floating Icons -->
+    <!-- Floating Icons - Flutter Related -->
     <div class="floating-icons">
-        <span class="float-icon">📱</span>
-        <span class="float-icon">💻</span>
-        <span class="float-icon">🚀</span>
-        <span class="float-icon">⚡</span>
-        <span class="float-icon">✨</span>
+        <span class="float-icon" title="Flutter">🦋</span>
+        <span class="float-icon" title="Dart">🎯</span>
+        <span class="float-icon" title="Mobile App">📱</span>
+        <span class="float-icon" title="Code">👨‍💻</span>
+        <span class="float-icon" title="Android">🤖</span>
+        <span class="float-icon" title="iOS">🍎</span>
+        <span class="float-icon" title="Firebase">🔥</span>
+        <span class="float-icon" title="API">🔗</span>
     </div>
 
     <main class="container">
@@ -682,8 +688,8 @@
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
+            const rotateX = (y - centerY) / 25;
+            const rotateY = (centerX - x) / 25;
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });

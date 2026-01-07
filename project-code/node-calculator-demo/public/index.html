@@ -12,6 +12,11 @@
         <span class="weather-icon">🌤️</span>
     </button>
 
+    <!-- API Button -->
+    <button class="api-btn" onclick="apiWidget.openModal()">
+        Call Sample API
+    </button>
+
     <!-- Weather Modal -->
     <div id="weather-modal" class="weather-modal">
         <div class="weather-modal-content">
@@ -39,6 +44,28 @@
                     <h3>7-Day Forecast</h3>
                     <div class="forecast-container" id="forecast-container"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Modal -->
+    <div id="api-modal" class="api-modal">
+        <div class="api-modal-content">
+            <button class="close-btn" onclick="apiWidget.closeModal()">&times;</button>
+            <h2>Sample API Results</h2>
+            <div id="api-loading" class="api-loading">Loading data...</div>
+            <div id="api-error" class="api-error" style="display: none;"></div>
+            <div id="api-data" style="display: none;">
+                <table class="api-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Country</th>
+                        </tr>
+                    </thead>
+                    <tbody id="api-table-body">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

@@ -297,3 +297,76 @@ document.getElementById('weather-modal').addEventListener('click', (event) => {
         weatherWidget.closeModal();
     }
 });
+
+// API Widget
+class APIWidget {
+    constructor() {
+        this.modal = document.getElementById('api-modal');
+        this.loadingEl = document.getElementById('api-loading');
+        this.errorEl = document.getElementById('api-error');
+        this.dataEl = document.getElementById('api-data');
+        this.tableBody = document.getElementById('api-table-body');
+        this.apiUrl = '/sample-api';
+    }
+
+    openModal() {
+        this.modal.classList.add('active');
+        this.loadingEl.style.display = 'block';
+        this.errorEl.style.display = 'none';
+        this.dataEl.style.display = 'none';
+        this.fetchData();
+    }
+
+    closeModal() {
+        this.modal.classList.remove('active');
+    }
+
+    async fetchData() {
+        try {
+            const response = await fetch(this.apiUrl);
+            if (!response.ok) {
+                throw new Error('Failed to fetch API data');
+            }
+            const data = await response.json();
+            this.displayData(data);
+        } catch (error) {
+            this.showError('Unable to load API data. Please try again later.');
+            console.error('API fetch error:', error);
+        }
+    }
+
+    displayData(data) {
+        this.loadingEl.style.display = 'none';
+        this.dataEl.style.display = 'block';
+
+        // Clear existing rows
+        this.tableBody.innerHTML = '';
+
+        // Add rows for each person
+        data.forEach(person => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${person.name}</td>
+                <td>${person.country}</td>
+            `;
+            this.tableBody.appendChild(row);
+        });
+    }
+
+    showError(message) {
+        this.loadingEl.style.display = 'none';
+        this.dataEl.style.display = 'none';
+        this.errorEl.style.display = 'block';
+        this.errorEl.textContent = message;
+    }
+}
+
+// Initialize API widget
+const apiWidget = new APIWidget();
+
+// Close modal when clicking outside
+document.getElementById('api-modal').addEventListener('click', (event) => {
+    if (event.target.id === 'api-modal') {
+        apiWidget.closeModal();
+    }
+});

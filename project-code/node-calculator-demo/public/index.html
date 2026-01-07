@@ -7,6 +7,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Weather Button -->
+    <button class="weather-btn" onclick="weatherWidget.openModal()">
+        <span class="weather-icon">🌤️</span>
+    </button>
+
+    <!-- Weather Modal -->
+    <div id="weather-modal" class="weather-modal">
+        <div class="weather-modal-content">
+            <button class="close-btn" onclick="weatherWidget.closeModal()">&times;</button>
+            <h2>Weather in Rajkot, Gujarat</h2>
+            <div id="weather-loading" class="weather-loading">Loading weather data...</div>
+            <div id="weather-error" class="weather-error" style="display: none;"></div>
+            <div id="weather-data" style="display: none;">
+                <div class="current-weather">
+                    <div class="weather-icon-large" id="current-icon">🌤️</div>
+                    <div class="temperature" id="current-temp">--°C</div>
+                    <div class="weather-description" id="current-desc">--</div>
+                </div>
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span class="detail-label">💧 Humidity</span>
+                        <span class="detail-value" id="humidity">--%</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">💨 Wind Speed</span>
+                        <span class="detail-value" id="wind-speed">-- km/h</span>
+                    </div>
+                </div>
+                <div class="forecast-section">
+                    <h3>7-Day Forecast</h3>
+                    <div class="forecast-container" id="forecast-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="calculator">
             <div class="display">
